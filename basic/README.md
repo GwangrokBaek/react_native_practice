@@ -53,3 +53,5 @@
       Dir[dir + '*/'].each(&method(:find_and_replace))
     end
     ```
+    
+    참고: https://stackoverflow.com/questions/67287092/react-native-ios-sdk-no-matching-function-for-call-to-rctbridgemodulenamefor <br>
