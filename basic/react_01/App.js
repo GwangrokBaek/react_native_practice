@@ -8,55 +8,30 @@
 
 import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import PropsChild from './propsChild';
 
-class App extends Component {
-  
-  state = {
-    sampleText: "Hello World",
-    sampleNum: 1,
-    sampleBoolean: false
-  }
-
-  onAdd = () => {
-    this.setState(prevState => {
-      return{
-        sampleNum: prevState.sampleNum + 1
-      }
-    }, this.showMsg)
-  }
-
-  changeState = () => {
-    if (this.state.sampleBoolean) {
-      this.setState({
-        sampleText: "Hi World",
-        sampleBoolean: false
-      })
-    } else {
-      this.setState({
-        sampleText: "Hello World",
-        sampleBoolean: true
-      })
-    }
-  }
-
-  showMsg = () => {
-    console.log(this.state.sampleNum)
-  }
-  
+class App extends Component {  
   render() {
     return (
-      <View style={styles.background}>
-        <PropsChild sampleText={this.state.sampleText} changeState={this.changeState}/>
+      <View style={styles.mainView}>
+        <View>
+          <Text> Hello World </Text>
+        </View>
+        <View>
+          <Text> Hello World </Text>
+        </View>
+        <View>
+          <Text> Hello World </Text>
+        </View>
       </View>
     )
   }
 }
 
 const styles = StyleSheet.create({
-  background: {
+  mainView: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: 'cyan',
+    paddingTop: 50,
     alignItems: 'center',
     justifyContent: 'center'
   }
