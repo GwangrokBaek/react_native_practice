@@ -1,10 +1,18 @@
 import React, { Component } from 'react';
- import { View, Text, StyleSheet } from 'react-native';
+ import { View, Text, StyleSheet, TouchableOpacity, TouchableWithoutFeedback } from 'react-native';
  
 const Header = (props) => ( // JSX Component를 리턴
-    <View style={styles.header}>
-        <Text> {props.name} </Text>
-    </View>
+    <TouchableOpacity
+        style={styles.header}
+        onPress={()=>alert('hello world')}
+        // onLongPress={()=>alert('hello world')}
+        // onPressIn={()=>alert('hello world')}
+        // onPressOut={()=>alert('hello world')}
+    >
+        <View>
+            <Text> {props.name} </Text>
+        </View>
+    </TouchableOpacity>
 )
 
 const styles = StyleSheet.create({
