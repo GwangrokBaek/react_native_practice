@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import Header from './src/header';
 import Generator from './src/generator';
 import NumList from './src/numlist';
+import Input from './src/input';
 
 class App extends Component {
 
@@ -34,7 +35,7 @@ class App extends Component {
   render() {
     return (
       <View style={styles.mainView}>
-        <Header name={this.state.appName}/>
+        {/* <Header name={this.state.appName}/>
         <View>
           <Text
             style={styles.mainText}
@@ -44,7 +45,17 @@ class App extends Component {
           </Text>
         </View>
         <Generator add={this.onAddRandomNum}/>
+        <ScrollView
+          style={{width: "100%"}}
+          // onMomentumScrollBegin={()=>{alert("begin")}}
+          // onMomentumScrollEnd={()=>{alert("end")}}
+          // onScroll={()=>{alert("scrolling")}}
+          // onContentSizeChange={(width, height) => alert(height)}
+          bounces={true}
+          >
         <NumList num={this.state.random} delete={this.onNumDelete}/>
+        </ScrollView> */}
+        <Input/>
       </View>
     )
   }
