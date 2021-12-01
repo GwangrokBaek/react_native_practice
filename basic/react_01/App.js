@@ -5,7 +5,8 @@ import Generator from './src/generator';
 import NumList from './src/numlist';
 import Input from './src/input';
 import Picker from './src/picker';
-import Tree from './assets/images/tree.jpg'
+import Modal from './src/modal';
+import Tree from './assets/images/tree.jpg';
 
 class App extends Component {
 
@@ -59,6 +60,7 @@ onChangeInput = (event) => {
           source={Tree}
           resizeMode="contain"
         /> */}
+        <Modal/>
         <Image
           style={styles.image}
           source={{uri: "https://picsum.photos/id/237/200/300"}}

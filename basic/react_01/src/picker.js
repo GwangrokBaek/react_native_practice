@@ -3,7 +3,7 @@ import { ActivityIndicator, View, Text, StyleSheet, TextInput } from "react-nati
 import {Picker} from "@react-native-community/picker"
 import Slider from "@react-native-community/slider"
 
-class Input extends Component {
+class PickerComponent extends Component {
 
     state = {
         country: "korea",
@@ -64,4 +64,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default Input
+export default PickerComponent
