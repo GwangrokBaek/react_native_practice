@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     input: {
         width: "100%",
         backgroundColor: "#cecece",
-        marginToop: 20,
+        marginTop: 20,
         fontSize: 25,
         padding: 10
     }
