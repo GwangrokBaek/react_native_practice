@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { Button, View, Text, TextInput, StyleSheet, ScrollView } from 'react-native';
 import Header from './src/header';
 import Generator from './src/generator';
 import NumList from './src/numlist';
@@ -9,8 +9,16 @@ class App extends Component {
 
   state = {
     appName: 'My First App',
-    random: [36, 999]
+    random: [36, 999],
+    myTextInput: "temp",
+    alphabet: ['a', 'b', 'c', 'd']
   }
+
+onChangeInput = (event) => {
+    this.setState({
+        myTextInput: event
+    })
+}
 
   onAddRandomNum = () => {
     const randomNum = Math.floor(Math.random() * 100) + 1;
@@ -29,6 +37,15 @@ class App extends Component {
        // num 자리를 비울 경우, 요소값을 업데이트 하지않으므로 임의의 num을 전달.
     this.setState({
       random: newArray
+    })
+  }
+
+  onAddTextInput = () => {
+    this.setState((prevState) => {
+      return {
+        myTextInput: '',
+        alphabet: [...prevState.alphabet, prevState.myTextInput]
+      }
     })
   }
 
@@ -55,7 +72,25 @@ class App extends Component {
           >
         <NumList num={this.state.random} delete={this.onNumDelete}/>
         </ScrollView> */}
-        <Input/>
+        {/* <Input/> */}
+        <TextInput // React Native에서 Data Flow는 부모 -> 자식 순이며, 자식의 데이터는 부모에게 전달 될 수 없다. 따라서 input.js의 Input 컴포넌트를
+        // import해서 사용하는 것이 아니라, 그대로 붙여넣어서 사용. but, 이러한 문제를 해결하기 위해 recoil 등 사용 가능.
+                value={this.state.myTextInput}
+                style={styles.input}
+                onChangeText={this.onChangeInput}
+                multiline={true}
+                maxLength={100}
+                autoCapitalize={'none'}
+                editable={true}
+            />
+        <Button title="Add Text Input" onPress={this.onAddTextInput}/>
+        <ScrollView style={{width: "100%"}}>
+          {this.state.alphabet.map((item, idx)=>(
+            <Text style={styles.mainText} key={idx}>
+              {item}
+            </Text>
+          ))}
+        </ScrollView>
       </View>
     )
   }
@@ -85,8 +120,17 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'normal',
     color: 'red',
-    padding: 20
-  }
+    padding: 20,
+    margin:20,
+    backgroundColor: "pink"
+  },
+  input: {
+    width: "100%",
+    backgroundColor: "#cecece",
+    marginTop: 20,
+    fontSize: 25,
+    padding: 10
+}
 })
 
 export default App;
