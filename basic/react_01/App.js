@@ -85,14 +85,14 @@ onChangeInput = (event) => {
                 autoCapitalize={'none'}
                 editable={true}
             />
-        <Button title="Add Text Input" onPress={this.onAddTextInput}/>
+        {/* <Button title="Add Text Input" onPress={this.onAddTextInput}/>
         <ScrollView style={{width: "100%"}}>
           {this.state.alphabet.map((item, idx)=>(
             <Text style={styles.mainText} key={idx}>
               {item}
             </Text>
           ))}
-        </ScrollView>
+        </ScrollView> */}
       </View>
     )
   }
