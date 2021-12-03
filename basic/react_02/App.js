@@ -25,8 +25,31 @@ class App extends Component {
     return (
       <NavigationContainer>
         <Stack.Navigator initialRouteName="User">
-          <Stack.Screen name="Home" component={HomeScreen}/>
-          <Stack.Screen name="User" component={UserScreen}/>
+          <Stack.Screen
+            name="Home"
+            component={HomeScreen}
+            options={{title: "Home Screen"}}
+          />
+          <Stack.Screen
+            name="User"
+            component={UserScreen}
+            initialParams={{
+              userIdx: 50,
+              userName: "Gildong",
+              userLastName: "Go"
+            }}
+            options={{
+              title: "User Screen",
+              headerStyle: {
+                backgroundColor: "pink"
+            },
+            headerTintColor: "red",
+            headerTitleStyle: {
+              fontWeight: "bold",
+              color: "purple"
+            }
+            }}
+            />
         </Stack.Navigator>
       </NavigationContainer>
     )
