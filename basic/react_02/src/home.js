@@ -23,7 +23,12 @@
            justifyContent: "center"
        }}>
            <Text>Home Screen</Text>
-           <Button title="To User Screen" onPress={()=>{this.props.navigation.navigate("User")}}/>
+           <Button title="To User Screen" onPress={()=>{this.props.navigation.navigate("User", {
+               userIdx: 100,
+               userName: "Gildong",
+               userLastName: "Hong"
+               }
+            )}}/>
        </View>
      )
    }
